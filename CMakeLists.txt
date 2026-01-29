@@ -15,7 +15,7 @@ else()
 endif()
 
 # 2. Search binary source files
-file(GLOBAL_RECURSE CPPS "src/*.cpp")
+file(GLOB_RECURSE CPPS "src/*.cpp")
 
 # 3. Create executable target
 add_executable(WiScope ${CPPS} ${ASM_SOURCE})

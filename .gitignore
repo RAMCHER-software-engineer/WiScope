@@ -1,0 +1,13 @@
+# Compile file
+bin/
+build/
+*.o
+*.obj
+
+# IDE file
+.vscode/
+.idea/
+*.swp
+
+# System file
+.DS_Store

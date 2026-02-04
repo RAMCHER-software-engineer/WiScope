@@ -18,7 +18,13 @@ endif()
 file(GLOB_RECURSE CPPS "src/*.cpp")
 
 # 3. Create executable target
-add_executable(WiScope ${CPPS} ${ASM_SOURCE})
+add_executable(WiScope 
+    src/main.cpp 
+    src/ui/TerminalUI.cpp 
+    src/core/Sniffer.cpp
+    src/core/Executor.cpp 
+    ${ASM_SOURCE}
+)
 
 # 4. Include directories
 target_include_directories(WiScope PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/include)

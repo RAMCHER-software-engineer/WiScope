@@ -26,4 +26,4 @@ class Sniffer {
         void parseTsharkOutput(const std::string& rawLine);
 };
 
-#endif 
+#endif // SNIFFER_HPP

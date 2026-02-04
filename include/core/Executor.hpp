@@ -11,4 +11,4 @@ class Executor {
         static bool isInstalled(const std::string& utility);
 };
 
-#endif
+#endif // EXECUTOR_HPP

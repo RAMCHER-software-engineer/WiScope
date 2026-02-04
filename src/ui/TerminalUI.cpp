@@ -15,10 +15,10 @@ void TerminalUI::init() {
 }
 
 void TerminalUI::showMenu() {
-    std::cout << "\n" << colorCayan << "[ МЕНЮ СИСТЕМЫ ]" << colorReset << std::endl;
-    std::cout << "1. Начать сканирование эфира" << std::endl;
-    std::cout << "2. Аудит локальной сети (Nmap)" << std::endl;
-    std::cout << "3. Выход" << std::endl;
+    std::cout << "\n" << colorCayan << "[ SYSTEM MENU ]" << colorReset << std::endl;
+    std::cout << "1. Start Scanning Networks" << std::endl;
+    std::cout << "2. Local Network Audit (Nmap)" << std::endl;
+    std::cout << "3. Exit" << std::endl;
     std::cout << ">> ";
 }
 

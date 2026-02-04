@@ -22,9 +22,21 @@ int main() {
     }
     ui.log("Access confirmed!", "SUCCESS");
 
-    if (!Executor::isInstalled("tshark")) {
-        ui.log("tshark not found. Start install scripts to /scripts", "ERROR");
-        return 1;
+    // Try environment override first (useful for GUI or manual overrides)
+    const char* env_tshark = std::getenv("TSHARK_PATH");
+    if (env_tshark) {
+        sniffer.setTsharkPath(std::string(env_tshark));
+        ui.log(std::string("Using TSHARK_PATH from environment: ") + env_tshark, "INFO");
+    } else {
+        // Auto-detect and inform user / GUI
+        std::string found = Executor::findUtility("tshark");
+        if (!found.empty()) {
+            sniffer.setTsharkPath(found);
+            ui.log(std::string("Detected tshark at: ") + found, "INFO");
+        } else {
+            ui.log("tshark not found. Start install scripts in /scripts or set TSHARK_PATH", "ERROR");
+            // Do not exit here to allow GUI to continue and user to set path later.
+        }
     }
     bool running = true;
     while (running) {
